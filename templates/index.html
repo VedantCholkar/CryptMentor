@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=IBM Plex Sans Condensed' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=DM Serif Display' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Mate' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap" rel="stylesheet">
+  <title>Crypt Mentor</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="logo">Crypt Mentor</div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/buy">Buy</a></li>
+          <li><a href="/sell">Sell</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="financials-container">
+      <div class="financials">
+        <div>Money: <span class="custom">{{ money }}</span></div>
+      </div>
+      <div class="financials">
+        <div>Valuation: <span class="custom">{{ valuation }}</span></div>
+      </div>
+      <div class="financials">
+        <div>Investment: <span class="custom">{{ investment }}</span></div>
+      </div>
+      <div class="financials">
+        <div>Profit/Loss: <span class="custom">{{ pl }}</span></div>
+      </div>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>QL</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in c_list %}
+        {% if i.name != 'money' %}
+        <tr>
+          <td>{{i.name}}</td>
+          <td class="table_data">{{i.quantity}}</td>
+          <td class="table_money">{{i.price}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Sell Section</title>
+  <link rel="stylesheet" type="text/css" href="../static/sell.css">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Space Mono' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">Crypt Mentor</div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/buy">Buy</a></li>
+          <li><a href="/sell">Sell</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h2 class="font">Sell Cryptocurrency</h2>
+    <form form action="{{ url_for('sell') }}" method="post" class="sell-form">
+      <label for="currency">Name:</label>
+      <select id="c_name" name="c_name">
+        {% for i in c_list %}
+        {% if i.name == 'money' %}
+          <option value="Select cryptocurrency" disabled>Select cryptocurrency</option>
+        {% else %}
+          <option value="{{ i.name }}" class="options">{{ i.name }}</option>
+        {% endif %}
+      {% endfor %}
+      </select>
+      <label for="crypto-amount">Quantity</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter quantity:">
+      <button class="sell-button" type="submit">Sell Now</button>
+    </form>
+</body>
+
+</html>
